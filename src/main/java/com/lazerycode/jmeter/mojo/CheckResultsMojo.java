@@ -117,9 +117,9 @@ public class CheckResultsMojo extends AbstractJMeterMojo {
             if (decider.failBuild()) {
                 throw new MojoFailureException(String.format(
                         "Failing build because error percentage %s is above accepted threshold %s. JMeter logs are available at: '%s'",
-                        logsDirectory.getAbsolutePath(),
                         decider.getErrorPercentage(),
-                        decider.getErrorPercentageThreshold()
+                        decider.getErrorPercentageThreshold(),
+                        logsDirectory.getAbsolutePath()
                 ));
             }
             if (resultScanner.getTotalCount() == 0 && failBuildIfResultFileIsEmpty) {
